@@ -1,6 +1,6 @@
 <template>
     <div v-for="sentence in data.sentences">
-        <div>
+        <div class="border border-dark rounded-pill p-3 m-3 text-center">
             {{ sentence }}
         </div>
     </div>
