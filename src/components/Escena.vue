@@ -1,12 +1,20 @@
 <template>
-    <div v-for="sentence in data.sentences">
-        <div class="border border-dark rounded-pill p-3 m-3 text-center">
+    <div v-for="(sentence,index) in sentences">
+        <div :class="{red:currentSentence[index]}" class="border border-dark rounded-pill p-3 m-3 text-center">
             {{ sentence }}
         </div>
     </div>
 </template>
 <script setup>
-    import data from "../data/data.json"
+
+const props = defineProps({
+  sentences: Array,
+  currentSentence: Array
+});
+
 </script>
 <style scoped>
+    .red{
+        background-color: #ffc0cb;
+    }
 </style>
