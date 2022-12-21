@@ -1,4 +1,4 @@
-<template>
+<template >
   <div v-if="isShowed">
     <div class="flex flex-column mt-5 border border-dark mx-5 w-50 mx-auto shadow-lg">
       <div class="m-5">
@@ -10,23 +10,34 @@
       </div>
     </div>
   </div>
-  <div v-else>
-    <Botons :currentSentence="currentSentence" />
-    <Escena :sentences="data.sentences" :currentSentence="currentSentence" />
+  <div v-else class="background" :style="{backgroundImage: 'url(' + bgImg +')' }">
+    <Botons  :currentSentence="currentSentence" />
+    <Escena :data="data" :currentSentence="currentSentence" />
   </div>
 </template>
 
 <script setup>
 import Botons from './Botons.vue';
 import Escena from './Escena.vue';
-import data from "../data/data.json";
-import { ref } from 'vue';
+import data from "../data/data";
+import { ref, computed} from 'vue';
+
+
 
 const currentSentence = ref([1, 0, 0, 0]);
 const isShowed = ref(true);
 
+const bgImg = computed(() => data[currentSentence.value.findIndex(a => a==1)].img)
+
 </script>
 
-<style scoped>
 
+
+
+<style scoped>
+.background {
+  height: 100vh;
+  width: 100vw;
+  background-size: 100vw 100vh ;
+}
 </style>

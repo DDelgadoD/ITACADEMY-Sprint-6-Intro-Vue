@@ -1,5 +1,5 @@
 <template>
-    <div class="d-flex m-2">
+    <div class="d-flex p-2">
         <button class="p-4 flex-fill" @click="move(currentSentence, 1)">Anterior</button>
         <button class="p-4 flex-fill" @click="move(currentSentence, -1)">Següent</button>
     </div>
